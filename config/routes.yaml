@@ -1,0 +1,4 @@
+# app:
+#   prefix: /
+#   resource: ../src/Controller
+#   type: annotation

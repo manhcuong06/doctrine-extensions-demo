@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Timestampable{% endblock %}
+
+{% block body %}
+    <h1>Create new Timestampable</h1>
+
+    {{ include('timestampable/_form.html.twig') }}
+
+    <a href="{{ path('timestampable_index') }}">back to list</a>
+{% endblock %}

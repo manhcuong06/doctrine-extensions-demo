@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Timestampable{% endblock %}
+
+{% block body %}
+    <h1>Edit Timestampable</h1>
+
+    {{ include('timestampable/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('timestampable_index') }}">back to list</a>
+
+    {{ include('timestampable/_delete_form.html.twig') }}
+{% endblock %}
