@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tree{% endblock %}
+
+{% block body %}
+    <h1>Tree</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tree.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ tree.title }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tree_index') }}">back to list</a>
+
+    <a href="{{ path('tree_edit', {'id': tree.id}) }}">edit</a>
+
+    {{ include('tree/_delete_form.html.twig') }}
+{% endblock %}

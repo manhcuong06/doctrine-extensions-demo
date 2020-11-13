@@ -6,7 +6,6 @@ use App\Entity\Sortable;
 use App\Form\SortableType;
 use App\Repository\SortableRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Gedmo\Sortable\Entity\Repository\SortableRepository as GedmoSortableRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
