@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Sluggable{% endblock %}
+
+{% block body %}
+    <h1>Edit Sluggable</h1>
+
+    {{ include('sluggable/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('sluggable_index') }}">back to list</a>
+
+    {{ include('sluggable/_delete_form.html.twig') }}
+{% endblock %}

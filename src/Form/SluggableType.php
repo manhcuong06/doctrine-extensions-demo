@@ -2,25 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\Timestampable;
+use App\Entity\Sluggable;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TimestampableType extends AbstractType
+class SluggableType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title')
-            ->add('body')
+            ->add('code')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Timestampable::class,
+            'data_class' => Sluggable::class,
         ]);
     }
 }

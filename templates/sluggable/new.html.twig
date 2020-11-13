@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Sluggable{% endblock %}
+
+{% block body %}
+    <h1>Create new Sluggable</h1>
+
+    {{ include('sluggable/_form.html.twig') }}
+
+    <a href="{{ path('sluggable_index') }}">back to list</a>
+{% endblock %}

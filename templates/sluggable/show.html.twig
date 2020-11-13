@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sluggable{% endblock %}
+
+{% block body %}
+    <h1>Sluggable</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sluggable.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ sluggable.title }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ sluggable.code }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ sluggable.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('sluggable_index') }}">back to list</a>
+
+    <a href="{{ path('sluggable_edit', {'slug': sluggable.slug}) }}">edit</a>
+
+    {{ include('sluggable/_delete_form.html.twig') }}
+{% endblock %}

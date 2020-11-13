@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Softdeleteable index{% endblock %}
+
+{% block body %}
+    <h1>Softdeleteable index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>DeletedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for softdeleteable in softdeleteables %}
+            <tr>
+                <td>{{ softdeleteable.id }}</td>
+                <td>{{ softdeleteable.title }}</td>
+                <td>{{ softdeleteable.deletedAt ? softdeleteable.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('softdeleteable_show', {'id': softdeleteable.id}) }}">show</a>
+                    <a href="{{ path('softdeleteable_edit', {'id': softdeleteable.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('softdeleteable_new') }}">Create new</a>
+{% endblock %}

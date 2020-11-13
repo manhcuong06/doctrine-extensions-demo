@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sluggable index{% endblock %}
+
+{% block body %}
+    <h1>Sluggable index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Code</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sluggable in sluggables %}
+            <tr>
+                <td>{{ sluggable.id }}</td>
+                <td>{{ sluggable.title }}</td>
+                <td>{{ sluggable.code }}</td>
+                <td>{{ sluggable.slug }}</td>
+                <td>
+                    <a href="{{ path('sluggable_show', {'slug': sluggable.slug}) }}">show</a>
+                    <a href="{{ path('sluggable_edit', {'slug': sluggable.slug}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sluggable_new') }}">Create new</a>
+{% endblock %}

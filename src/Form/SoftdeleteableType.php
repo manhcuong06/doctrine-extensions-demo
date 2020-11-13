@@ -2,25 +2,24 @@
 
 namespace App\Form;
 
-use App\Entity\Timestampable;
+use App\Entity\Softdeleteable;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TimestampableType extends AbstractType
+class SoftdeleteableType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title')
-            ->add('body')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Timestampable::class,
+            'data_class' => Softdeleteable::class,
         ]);
     }
 }

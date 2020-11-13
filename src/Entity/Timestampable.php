@@ -25,23 +25,40 @@ class Timestampable
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180)
+     * @ORM\Column(type="string", length=128)
      */
-    private $name;
+    private $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $body;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getTitle(): ?string
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName(string $name): self
+    public function setTitle(string $title): self
     {
-        $this->name = $name;
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getBody(): ?string
+    {
+        return $this->body;
+    }
+
+    public function setBody(string $body): self
+    {
+        $this->body = $body;
 
         return $this;
     }

@@ -9,7 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Title</th>
+                <th>Body</th>
                 <th>CreatedAt</th>
                 <th>UpdatedAt</th>
                 <th>actions</th>
@@ -19,7 +20,8 @@
         {% for timestampable in timestampables %}
             <tr>
                 <td>{{ timestampable.id }}</td>
-                <td>{{ timestampable.name }}</td>
+                <td>{{ timestampable.title }}</td>
+                <td>{{ timestampable.body }}</td>
                 <td>{{ timestampable.createdAt ? timestampable.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ timestampable.updatedAt ? timestampable.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
@@ -29,7 +31,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
