@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Sortable 1",
+        "category": "category 1"
+    },
+    {
+        "name": "Sortable 2",
+        "category": "category 1"
+    },
+
+    {
+        "name": "Sortable 3",
+        "category": "category 2"
+    },
+    {
+        "name": "Sortable 4",
+        "category": "category 2"
+    }
+]

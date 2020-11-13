@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sortable index{% endblock %}
+
+{% block body %}
+    <h1>Sortable index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Category</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sortable in sortables %}
+            <tr>
+                <td>{{ sortable.id }}</td>
+                <td>{{ sortable.name }}</td>
+                <td>{{ sortable.position }}</td>
+                <td>{{ sortable.category }}</td>
+                <td>
+                    <a href="{{ path('sortable_show', {'id': sortable.id}) }}">show</a>
+                    <a href="{{ path('sortable_edit', {'id': sortable.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Sortable Basic index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Category</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sortable in sortablesBasic %}
+            <tr>
+                <td>{{ sortable.id }}</td>
+                <td>{{ sortable.name }}</td>
+                <td>{{ sortable.position }}</td>
+                <td>{{ sortable.category }}</td>
+                <td>
+                    <a href="{{ path('sortable_show', {'id': sortable.id}) }}">show</a>
+                    <a href="{{ path('sortable_edit', {'id': sortable.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sortable_new') }}">Create new</a>
+{% endblock %}

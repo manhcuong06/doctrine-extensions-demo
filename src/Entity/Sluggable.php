@@ -8,6 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=SluggableRepository::class)
+ * @ORM\Table(name="sluggables")
  */
 class Sluggable
 {

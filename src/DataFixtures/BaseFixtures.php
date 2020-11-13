@@ -33,9 +33,9 @@ abstract class BaseFixtures extends Fixture
     {
         $listData = $this->fileService->getFileContent(__DIR__ . '/Json', $this->fileName);
         foreach ($listData as $data) {
-            $customer = $this->serializerService->deserialize($data, $this->className);
+            $entity = $this->serializerService->deserialize($data, $this->className);
 
-            $manager->persist($customer);
+            $manager->persist($entity);
         }
 
         $manager->flush();

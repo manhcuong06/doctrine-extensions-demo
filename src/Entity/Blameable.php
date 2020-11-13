@@ -2,23 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\SoftdeleteableRepository;
+use App\Repository\BlameableRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Blameable\Traits\BlameableEntity;
 
 /**
- * @ORM\Entity(repositoryClass=SoftdeleteableRepository::class)
- * @ORM\Table(name="softdeleteables")
- * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false, hardDelete=true)
+ * @ORM\Entity(repositoryClass=BlameableRepository::class)
+ * @ORM\Table(name="blameables")
  */
-class Softdeleteable
+class Blameable
 {
     /**
-     * Hook SoftDeleteable behavior
-     * updates deletedAt field
+     * Hook blameable behavior
+     * updates createdBy, updatedBy fields
      */
-    use SoftDeleteableEntity;
+    use BlameableEntity;
 
     /**
      * @ORM\Id

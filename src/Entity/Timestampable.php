@@ -8,6 +8,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass=TimestampableRepository::class)
+ * @ORM\Table(name="timestampables")
  */
 class Timestampable
 {
