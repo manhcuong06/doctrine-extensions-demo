@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Tree;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TreeType extends AbstractType
@@ -13,7 +14,11 @@ class TreeType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('parent')
+            // ->add('parent')
+            ->add('parentTitle', TextType::class, [
+                'required' => false,
+                'mapped' => false,
+            ])
         ;
     }
 

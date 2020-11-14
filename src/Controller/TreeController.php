@@ -19,6 +19,7 @@ class TreeController extends AbstractController
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
+        $this->repository = $this->em->getRepository(Tree::class);
     }
 
     /**
@@ -26,11 +27,9 @@ class TreeController extends AbstractController
      */
     public function index(TreeRepository $treeRepository): Response
     {
-        $repo = $this->em->getRepository(Tree::class);
-
         return $this->render('tree/index.html.twig', [
             // 'trees' => $treeRepository->findAll(),
-            'trees' => $repo->children(),
+            'trees' => $this->repository->children(),
         ]);
     }
 
@@ -44,6 +43,10 @@ class TreeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $parentTitle = $form->get('parentTitle')->getData();
+            $parent = $this->repository->findOneByTitle($parentTitle);
+            $tree->setParent($parent);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($tree);
             $entityManager->flush();
@@ -76,6 +79,9 @@ class TreeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $parentTitle = $form->get('parentTitle')->getData();
+            $parent = $this->repository->findOneByTitle($parentTitle);
+            $tree->setParent($parent);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('tree_index');
