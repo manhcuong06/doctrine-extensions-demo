@@ -19,6 +19,7 @@ class SortableController extends AbstractController
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
+        $this->repository = $this->em->getRepository(Sortable::class);
     }
 
     /**
@@ -26,13 +27,8 @@ class SortableController extends AbstractController
      */
     public function index(SortableRepository $sortableRepository): Response
     {
-        $sortables = $this->em
-            ->getRepository(Sortable::class)
-            ->getBySortableGroups(['category' => 'category 1'])
-        ;
-
         return $this->render('sortable/index.html.twig', [
-            'sortables' => $sortables,
+            'sortables' => $this->repository->getBySortableGroups(['category' => 'category 1']),
             'sortablesBasic' => $sortableRepository->findAll(),
         ]);
     }

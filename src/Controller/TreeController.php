@@ -28,8 +28,8 @@ class TreeController extends AbstractController
     public function index(TreeRepository $treeRepository): Response
     {
         return $this->render('tree/index.html.twig', [
-            // 'trees' => $treeRepository->findAll(),
             'trees' => $this->repository->children(),
+            'treesBasic' => $treeRepository->findAll(),
         ]);
     }
 
