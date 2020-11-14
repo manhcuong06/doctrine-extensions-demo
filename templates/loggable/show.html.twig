@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Loggable{% endblock %}
+
+{% block body %}
+    <h1>Loggable</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ loggable.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ loggable.title }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('loggable_index') }}">back to list</a>
+
+    <a href="{{ path('loggable_edit', {'id': loggable.id}) }}">edit</a>
+
+    {{ include('loggable/_delete_form.html.twig') }}
+{% endblock %}

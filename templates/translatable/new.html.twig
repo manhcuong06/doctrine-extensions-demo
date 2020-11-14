@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Translatable{% endblock %}
+
+{% block body %}
+    <h1>Create new Translatable</h1>
+
+    {{ include('translatable/_form.html.twig') }}
+
+    <a href="{{ path('translatable_index') }}">back to list</a>
+{% endblock %}

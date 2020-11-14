@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Loggable{% endblock %}
+
+{% block body %}
+    <h1>Create new Loggable</h1>
+
+    {{ include('loggable/_form.html.twig') }}
+
+    <a href="{{ path('loggable_index') }}">back to list</a>
+{% endblock %}

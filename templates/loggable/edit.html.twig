@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Loggable{% endblock %}
+
+{% block body %}
+    <h1>Edit Loggable</h1>
+
+    {{ include('loggable/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('loggable_index') }}">back to list</a>
+
+    {{ include('loggable/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Loggable index{% endblock %}
+
+{% block body %}
+    <h1>Loggable index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for loggable in loggables %}
+            <tr>
+                <td>{{ loggable.id }}</td>
+                <td>{{ loggable.title }}</td>
+                <td>
+                    <a href="{{ path('loggable_show', {'id': loggable.id}) }}">show</a>
+                    <a href="{{ path('loggable_edit', {'id': loggable.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('loggable_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Translatable{% endblock %}
+
+{% block body %}
+    <h1>Translatable</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ translatable.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ translatable.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ translatable.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('translatable_index') }}">back to list</a>
+
+    <a href="{{ path('translatable_edit', {'id': translatable.id}) }}">edit</a>
+
+    {{ include('translatable/_delete_form.html.twig') }}
+{% endblock %}
