@@ -10,11 +10,11 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20201116030040 extends AbstractMigration
+final class Version20201113043525 extends AbstractMigration
 {
     public function getDescription() : string
     {
-        return '';
+        return 'Tables r_categories and r_products';
     }
 
     public function up(Schema $schema) : void
