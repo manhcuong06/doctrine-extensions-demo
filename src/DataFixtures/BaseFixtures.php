@@ -12,16 +12,16 @@ abstract class BaseFixtures extends Fixture
     /**
      * @var FileService
      */
-    private $fileService;
+    protected $fileService;
 
     /**
      * @var SerializerService
      */
-    private $serializerService;
+    protected $serializerService;
 
-    private $fileName;
+    protected $fileName;
 
-    private $className;
+    protected $className;
 
     public function __construct(FileService $fileService, SerializerService $serializerService)
     {
@@ -31,7 +31,7 @@ abstract class BaseFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $listData = $this->fileService->getFileContent(__DIR__ . '/Json', $this->fileName);
+        $listData = $this->getListData();
         foreach ($listData as $data) {
             $entity = $this->serializerService->deserialize($data, $this->className);
 
@@ -39,6 +39,11 @@ abstract class BaseFixtures extends Fixture
         }
 
         $manager->flush();
+    }
+
+    protected function getListData()
+    {
+        return $this->fileService->getFileContent(__DIR__ . '/Json', $this->fileName);
     }
 
     protected function setPath($fileName, $className)

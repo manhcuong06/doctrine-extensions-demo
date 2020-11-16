@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit RProduct{% endblock %}
+
+{% block body %}
+    <h1>Edit RProduct</h1>
+
+    {{ include('r_product/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('r_product_index') }}">back to list</a>
+
+    {{ include('r_product/_delete_form.html.twig') }}
+{% endblock %}

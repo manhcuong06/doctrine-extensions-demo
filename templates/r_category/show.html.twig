@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RCategory{% endblock %}
+
+{% block body %}
+    <h1>RCategory</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ r_category.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ r_category.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('r_category_index') }}">back to list</a>
+
+    <a href="{{ path('r_category_edit', {'id': r_category.id}) }}">edit</a>
+
+    {{ include('r_category/_delete_form.html.twig') }}
+{% endblock %}
