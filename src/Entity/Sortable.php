@@ -5,9 +5,10 @@ namespace App\Entity;
 use App\Repository\SortableRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Sortable\Entity\Repository\SortableRepository as GedmoSortableRepository;
 
 /**
- * @ORM\Entity(repositoryClass="Gedmo\Sortable\Entity\Repository\SortableRepository")
+ * @ORM\Entity(repositoryClass=GedmoSortableRepository::class)
  * @ORM\Table(name="sortables")
  */
 class Sortable

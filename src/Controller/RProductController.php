@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\RProduct;
 use App\Form\RProductType;
 use App\Repository\RProductRepository;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,11 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class RProductController extends AbstractController
 {
+    public function __construct(FileUploader $fileUploader)
+    {
+        $this->fileUploader = $fileUploader;
+    }
+
     /**
      * @Route("/", name="r_product_index", methods={"GET"})
      */
@@ -35,6 +41,12 @@ class RProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $image = $form->get('image')->getData();
+            if ($image) {
+                $fileName = $this->fileUploader->upload($image, rProduct::DIRECTORY);
+                $rProduct->setImage($fileName);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($rProduct);
             $entityManager->flush();
@@ -67,6 +79,12 @@ class RProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $image = $form->get('image')->getData();
+            if ($image) {
+                $fileName = $this->fileUploader->upload($image, rProduct::DIRECTORY);
+                $rProduct->setImage($fileName);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('r_product_index');

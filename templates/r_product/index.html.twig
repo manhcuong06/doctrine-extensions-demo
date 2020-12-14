@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Category</th>
+                <th>Image</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ r_product.id }}</td>
                 <td>{{ r_product.name }}</td>
                 <td>{{ r_product.category.name }}</td>
+                <td><img src="{{ asset('uploads/' ~ r_product.image) }}"></td>
                 <td>
                     <a href="{{ path('r_product_show', {'id': r_product.id}) }}">show</a>
                     <a href="{{ path('r_product_edit', {'id': r_product.id}) }}">edit</a>

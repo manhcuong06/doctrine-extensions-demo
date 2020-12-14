@@ -11,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class RProduct
 {
+    const DIRECTORY = 'products/';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -28,6 +30,11 @@ class RProduct
      * @ORM\Column(type="string", length=255)
      */
     private $name;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $image;
 
     public function getId(): ?int
     {
@@ -56,5 +63,22 @@ class RProduct
         $this->name = $name;
 
         return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image ?? '';
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = self::DIRECTORY . $image;
+
+        return $this;
+    }
+
+    public static function getDirectory()
+    {
+        return self::DIRECTORY;
     }
 }
